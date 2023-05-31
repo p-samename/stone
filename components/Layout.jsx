@@ -1,5 +1,7 @@
 import Head from 'next/head';
-import Navbar from '@/components/Navbar';
+//layout components
+import { Footer, Navbar } from '@components/index';
+
 export default function Layout({ children, additionalClass }) {
   return (
     <>
@@ -10,9 +12,7 @@ export default function Layout({ children, additionalClass }) {
         </Head>
         <Navbar />
         <main>{children}</main>
-        <footer>
-          <div>test footer</div>
-        </footer>
+        <Footer />
       </div>
     </>
   );
