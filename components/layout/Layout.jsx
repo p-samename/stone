@@ -1,8 +1,8 @@
 import Head from 'next/head';
-//layout components
 import { Footer, Navbar } from '@components/index';
+//layout components
 
-export default function Layout({ children, additionalClass }) {
+export const Layout = ({ children, additionalClass }) => {
   return (
     <>
       <div className={`${additionalClass}`}>
@@ -16,4 +16,4 @@ export default function Layout({ children, additionalClass }) {
       </div>
     </>
   );
-}
+};

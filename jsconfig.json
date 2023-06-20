@@ -3,20 +3,12 @@
     "target": "es5",
     "baseUrl": "./",
     "paths": {
-      "@api/*": ["api/*"],
       "@components/*": ["components/*"],
       "@hooks/*": ["hooks/*"],
       "@layout/*": ["layout/*"],
       "@pages/*": ["pages/*"],
-      "@popups/*": ["popups/*"],
       "@public/*": ["public/*"],
-      "@store/*": ["store/*"],
-      "@styles/*": ["styles/*"],
-      "@utils/*": ["utils/*"],
-      "@container/*": ["container/*"],
-      "@hoc/*": ["hoc/*"],
-      "@lib/*": ["lib/*"],
-      "@constant/*": ["constant/*"]
+      "@styles/*": ["styles/*"]
     }
   }
 }
