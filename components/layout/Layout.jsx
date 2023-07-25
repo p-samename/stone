@@ -1,17 +1,12 @@
-import Head from 'next/head';
-import { Footer, Navbar } from '@components/index';
-//layout components
+import { Footer, HeadOption, Navbar } from '@components/index';
 
-export const Layout = ({ children, additionalClass }) => {
+export const Layout = ({ children, additionalClass, headOption }) => {
   return (
     <>
       <div className={`${additionalClass}`}>
-        <Head>
-          <title>stone</title>
-          <link rel="icon" href="/favicon.ico" />
-        </Head>
+        <HeadOption {...headOption?.props} />
         <Navbar />
-        <main>{children}</main>
+        {children}
         <Footer />
       </div>
     </>

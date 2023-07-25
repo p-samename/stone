@@ -1,11 +1,12 @@
-import { Layout } from '@components/layout/Layout';
+import { Layout } from '@components/index';
 
-export default function App({ Component, pageProps }) {
+function Stone({ Component, pageProps }) {
   const getLayout = Component.getLayout
     ? Component.getLayout || ((page) => page) // 페이지 별 특정 layout
     : function getLayout(page) {
         return <Layout>{page}</Layout>; // default layout
       };
 
-  return getLayout(<Component {...pageProps} />);
+  return <>{getLayout(<Component {...pageProps} />)}</>;
 }
+export default Stone;
