@@ -1,3 +1,4 @@
+import { HeadOption, Layout } from '@components/index';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
