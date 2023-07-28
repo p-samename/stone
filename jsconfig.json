@@ -6,7 +6,7 @@
       "@components/*": ["components/*"],
       "@hooks/*": ["hooks/*"],
       "@layout/*": ["layout/*"],
-      "@img/*": ["img/*"],
+      "@images/*": ["public/images/*"],
       "@pages/*": ["pages/*"],
       "@public/*": ["public/*"],
       "@styles/*": ["styles/*"]

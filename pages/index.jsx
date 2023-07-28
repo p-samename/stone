@@ -1,24 +1,16 @@
 import { HeadOption, Layout } from '@components/index';
 import axios from 'axios';
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import mainImg from '@images/main.png';
 
 const TITLE = '메인';
 export default function Main(props) {
-  const [data, setData] = useState(null);
-  async function getData() {
-    try {
-      const { data } = await axios.get('api/data');
-      setData(data.productsData);
-    } catch (error) {
-      console.error(error);
-    }
-  }
-
-  useEffect(() => {
-    getData();
-  }, []);
-
-  return <div>{data}</div>;
+  return (
+    <div>
+      <Image src={mainImg} style={{ width: '100vw', height: 'auto', backgroundSize: 'cover' }} />
+    </div>
+  );
 }
 
 Main.getLayout = function getLayout(page) {
