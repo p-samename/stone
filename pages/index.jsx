@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { Layout, HeadOption } from '@components/index';
 import { useEffect, useState } from 'react';
 
 const TITLE = '메인';
@@ -7,7 +6,7 @@ export default function Main(props) {
   const [data, setData] = useState(null);
   async function getData() {
     try {
-      const { data } = await axios.get('http://localhost:3000/api/data');
+      const { data } = await axios.get('api/data');
       setData(data.productsData);
     } catch (error) {
       console.error(error);
