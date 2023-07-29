@@ -67,9 +67,8 @@ module.exports = {
     },
     extend: {
       screens: {
-        web: { min: '1024px' },
-        pad: { min: '768px' },
-        mb: { max: '375px' },
+        pad: { min: '1024px' },
+        mb: { min: '375px' },
       },
       borderRadius: sizeList(22, 4),
       borderWidth: sizeList(22, 1),

@@ -1,11 +1,10 @@
 import { Footer, HeadOption, Navbar } from '@components/index';
 
-export const Layout = ({ children, additionalClass, headOption }) => {
+export const Layout = ({ children, additionalClass, headOption, nav }) => {
   return (
     <>
       <div className={`${additionalClass}`}>
         <HeadOption {...headOption?.props} />
-        <Navbar />
         {children}
         <Footer />
       </div>
