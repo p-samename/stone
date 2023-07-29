@@ -11,7 +11,7 @@ import { useEffect, useState } from 'react';
 
 // Import Swiper styles
 
-const TITLE = '메인';
+const TITLE = 'stone';
 export default function Main() {
   const [product, setProduct] = useState();
 
