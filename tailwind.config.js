@@ -1,14 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./src/pages/**/*.{js,ts,jsx,tsx,mdx}', './src/components/**/*.{js,ts,jsx,tsx,mdx}', './src/app/**/*.{js,ts,jsx,tsx,mdx}'],
-  prefix: 'tw-', // prefix tw- 를 사용해야만 테일윈드 스타일 적용
+  content: ['./pages/**/*.{js,ts,jsx,tsx,mdx}', './components/**/*.{js,ts,jsx,tsx,mdx}', './app/**/*.{js,ts,jsx,tsx,mdx}'],
+  // prefix: 'tw-', // prefix tw- 를 사용해야만 테일윈드 스타일 적용
   important: true, // tailwind 스타일 important
   theme: {
-    spacing: {
-      0: '0px',
-      // custom vh 계산된 --vh에 기반한 화면의 실 높이
-      '100cvh': 'calc(var(--vh, 1vh)*100)',
-    },
     //color custom
     colors: {
       primary: {

@@ -1,7 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 * {
   margin: 0;
   padding: 0;
@@ -13,8 +12,4 @@ img {
 
 a {
   font-style: none;
-}
-
-div {
-  color: red;
 }
