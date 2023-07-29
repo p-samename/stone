@@ -1,4 +1,4 @@
-import { Footer, HeadOption, Navbar } from '@components/index';
+import { Footer, HeadOption } from '@components/index';
 
 export const Layout = ({ children, additionalClass, headOption, nav }) => {
   return (

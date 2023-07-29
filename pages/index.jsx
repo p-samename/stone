@@ -7,6 +7,7 @@ import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Button, HeadOption, Layout, Navbar, MainProductSlideContents } from '@components/index';
 import { useEffect, useState } from 'react';
+import { MainContent } from '@components/content/MainContents';
 // Import Swiper React components
 
 // Import Swiper styles
@@ -43,7 +44,7 @@ export default function Main() {
         </div>
       </div>
       {/* slide */}
-      <div className="product1 flex gap-[40px] relative mb:flex-col bg-grey-g6 items-center h-[max] py-48px">
+      <div className="product1 flex gap-[40px] relative mb:flex-col bg-grey-g7 items-center h-[max] py-48px">
         {/* infoBlock */}
         <div className="flex flex-col w-[280px] pad:ml-[80px] mb:mx-auto h-[100%] justify-center">
           <p className="text-[44px] mb-12px">HAND</p>
@@ -70,6 +71,12 @@ export default function Main() {
             1024: {
               slidesPerView: 2.5,
             },
+            1400: {
+              slidesPerView: 3,
+            },
+            1920: {
+              slidesPerView: 3.5,
+            },
           }}
           pagination={{
             type: 'progressbar',
@@ -86,6 +93,41 @@ export default function Main() {
           {/* slide */}
         </Swiper>
       </div>
+      <MainContent
+        title={'브론즈 인센스 홀더'} //
+        subTitle={'고요함을 불어넣는 홈 케어 제품'}
+        description={
+          '보겔 스튜디오(Vogel Studio)가 이솝을 위해 디자인한 인센스 홀더로 공간에 평온한 분위기를 선사합니다.\
+           하나하나 개별적으로 제작되며, 청동으로 주조되어 시간이 지남에 따라 자연스러운 녹청이 생길 수 있습니다.'
+        }
+        imagePath={'/images/products/homeCare/insenceHolder.png'}
+        buttonTitle={'홈케어 제품 보러가기'}
+      />
+
+      <MainContent
+        title={'도시 생활을 위한 가벼운 레이어'} //
+        subTitle={'안티 옥시던트 인텐스 세럼'}
+        description={
+          '도시 생활자를 고려해 개발된 이 세럼은 지속적이면서도 가볍고 빠른 수분 공급과 항산화 성분이\
+           풍부한 영양 보충을 돕고 피부가 편안한 보호막을 형성하여 피부를 탄탄하게 지켜줍니다.'
+        }
+        imagePath={'/images/products/contentsImg/1.png'}
+        buttonTitle={'인텐스 세럼 더보기'}
+        reverseContent={true}
+        bgColor="bg-grey-g7"
+      />
+
+      <MainContent
+        title={'도시 생활을 위한 가벼운 레이어'} //
+        subTitle={'안티 옥시던트 인텐스 세럼'}
+        description={
+          '도시 생활자를 고려해 개발된 이 세럼은 지속적이면서도 가볍고 빠른 수분 공급과 항산화 성분이\
+           풍부한 영양 보충을 돕고 피부가 편안한 보호막을 형성하여 피부를 탄탄하게 지켜줍니다.'
+        }
+        imagePath={'/images/products/contentsImg/2.png'}
+        buttonTitle={'인텐스 세럼 더보기'}
+        bgColor="bg-grey-g7"
+      />
     </>
   );
 }
