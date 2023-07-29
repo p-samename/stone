@@ -6,3 +6,6 @@ export { Navbar } from './layout/Navbar';
 
 // ** component
 export { Button } from './button/Button';
+
+//** swiper
+export { MainProductSlideContents } from './slide/MainProductSlideContents';
