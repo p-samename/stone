@@ -12,7 +12,7 @@ import { MainContent } from '@components/content/MainContents';
 
 // Import Swiper styles
 
-const TITLE = 'stone';
+const TITLE = 'Aesop Main';
 export default function Main() {
   const [product, setProduct] = useState();
 
@@ -90,8 +90,8 @@ export default function Main() {
               </>
             );
           })}
-          {/* slide */}
         </Swiper>
+        {/* slide */}
       </div>
       <MainContent
         title={'브론즈 인센스 홀더'} //
@@ -100,7 +100,7 @@ export default function Main() {
           '보겔 스튜디오(Vogel Studio)가 이솝을 위해 디자인한 인센스 홀더로 공간에 평온한 분위기를 선사합니다.\
            하나하나 개별적으로 제작되며, 청동으로 주조되어 시간이 지남에 따라 자연스러운 녹청이 생길 수 있습니다.'
         }
-        imagePath={'/images/products/homeCare/insenceHolder.png'}
+        imagePath={'/images/products/homeCare/insence_main.png'}
         buttonTitle={'홈케어 제품 보러가기'}
       />
 
@@ -128,6 +128,68 @@ export default function Main() {
         buttonTitle={'인텐스 세럼 더보기'}
         bgColor="bg-grey-g7"
       />
+      <MainContent
+        title={'도시 생활을 위한 가벼운 레이어'} //
+        subTitle={'안티 옥시던트 인텐스 세럼'}
+        description={
+          '도시 생활자를 고려해 개발된 이 세럼은 지속적이면서도 가볍고 빠른 수분 공급과 항산화 성분이\
+           풍부한 영양 보충을 돕고 피부가 편안한 보호막을 형성하여 피부를 탄탄하게 지켜줍니다.'
+        }
+        imagePath={'/images/products/contentsImg/3.png'}
+        buttonTitle={'인텐스 세럼 더보기'}
+        bgColor="bg-grey-g7"
+      />
+      <div className="product2 flex gap-[40px] relative mb:flex-col bg-grey-g6 items-center h-[max] py-48px">
+        {/* infoBlock */}
+        <div className="flex flex-col w-[280px] pad:ml-[80px] mb:mx-auto h-[100%] justify-center">
+          <p className="text-[44px] mb-12px">HAND</p>
+          <p className="text-body5 mb-24px">
+            이솝의 바디와 핸드 제품은 효과적인 클렌징, 수분 공급, 퍼스널 케어에 따른 고민 완화 등 일상적일 수 있는 경험을 한층 풍성하게 만들어줍니다.
+          </p>
+          <Button title={'모든 제품 보러가기'} />
+        </div>
+        {/* infoBlock */}
+        {/* slide */}
+        <Swiper
+          style={{ position: 'unset' }}
+          className="w-[100%] [&_.swiper-pagination-progressbar-fill]:bg-primary-p3 [&_.swiper-pagination]:bottom-0 [&_.swiper-pagination]:top-[unset]"
+          modules={[Navigation, Pagination, Scrollbar, A11y]} //
+          slidesPerView={1}
+          spaceBetween={12}
+          breakpoints={{
+            375: {
+              slidesPerView: 1,
+            },
+            768: {
+              slidesPerView: 1.5,
+            },
+            1024: {
+              slidesPerView: 2.5,
+            },
+            1400: {
+              slidesPerView: 3,
+            },
+            1920: {
+              slidesPerView: 3.5,
+            },
+          }}
+          pagination={{
+            type: 'progressbar',
+          }}>
+          {product.map((product, idx) => {
+            return (
+              <>
+                <SwiperSlide>
+                  <MainProductSlideContents key={idx} product={product} />
+                </SwiperSlide>
+              </>
+            );
+          })}
+        </Swiper>
+      </div>
+      {/* slide */}
+
+      <div className="h-[650px] bg-no-repeat bg-cover bg-center bg-right" style={{ background: 'url("/images/products/contentsImg/4.png")' }}></div>
     </>
   );
 }
