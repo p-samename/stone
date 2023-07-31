@@ -67,7 +67,7 @@ module.exports = {
     },
     extend: {
       screens: {
-        web: { min: '1024px' },
+        web: { min: '1400px' },
         pad: { min: '768px' },
         mb: { max: '767px' },
       },
