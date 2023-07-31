@@ -1,6 +1,8 @@
+import { useState } from 'react';
+
 export function Footer() {
   return (
-    <>
+    <footer>
       <div className="w-[100%] h-max bg-primary-p1 py-40px">
         <div className="flex flex-col items-center">
           <div className="px-12px logo" src="/images/logo.svg" />
@@ -14,6 +16,6 @@ export function Footer() {
           <p className="text-body5 text-grey-g8">@2023 All Right Reserved by stone</p>
         </div>
       </div>
-    </>
+    </footer>
   );
 }

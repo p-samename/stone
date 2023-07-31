@@ -32,7 +32,6 @@ export default function Main() {
   useEffect(() => {
     getProduct();
   }, []);
-  if (!product) return;
 
   return (
     <>
@@ -81,7 +80,7 @@ export default function Main() {
           pagination={{
             type: 'progressbar',
           }}>
-          {product.map((product, idx) => {
+          {product?.map((product, idx) => {
             return (
               <>
                 <SwiperSlide>
@@ -176,7 +175,7 @@ export default function Main() {
           pagination={{
             type: 'progressbar',
           }}>
-          {product.map((product, idx) => {
+          {product?.map((product, idx) => {
             return (
               <>
                 <SwiperSlide>
@@ -195,9 +194,5 @@ export default function Main() {
 }
 
 Main.getLayout = function getLayout(page) {
-  return (
-    <Layout additionalClass={'home'} headOption={<HeadOption title={TITLE} />}>
-      {page}
-    </Layout>
-  );
+  return <Layout headOption={<HeadOption title={TITLE} />}>{page}</Layout>;
 };
