@@ -1,6 +1,5 @@
 import { Layout } from '@components/index';
 import '@styles/home.css';
-
 function Stone({ Component, pageProps }) {
   const getLayout = Component.getLayout
     ? Component.getLayout || ((page) => page) // 페이지 별 특정 layout

@@ -15,11 +15,11 @@ export function HeadOption({ title, description, children }) {
       <meta key="description" name="description" content={_description} />
       <meta key="og:type" property="og:type" content="website" />
       <meta key="og:site_name" property="og:site_name" content="stone" />
-      <meta key="og:local" property="og:local" content="ko" />
+      <meta key="og:locale" property="og:locale" content="ko" />
       <meta key="og:image" property="og:image" content={'/images/products/contentsImg/1.png'} />
       <meta key="og:title" property="og:title" content={_title} />
       <meta key="og:description" property="og:description" content={_description} />
-      <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+      <script async src="https://developers.kakao.com/sdk/js/kakao.js"></script>
       {children}
     </Head>
   );
