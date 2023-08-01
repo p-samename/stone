@@ -19,6 +19,7 @@ export function HeadOption({ title, description, children }) {
       <meta key="og:image" property="og:image" content={'/images/products/contentsImg/1.png'} />
       <meta key="og:title" property="og:title" content={_title} />
       <meta key="og:description" property="og:description" content={_description} />
+      <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
       {children}
     </Head>
   );
