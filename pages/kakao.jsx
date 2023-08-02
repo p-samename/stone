@@ -3,7 +3,6 @@ import { useEffect } from 'react';
 
 export default function Kakao() {
   const { data: session } = useSession();
-
   useEffect(() => {
     console.log(session);
   }, [session]);
