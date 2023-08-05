@@ -17,32 +17,45 @@ export default function Product() {
       <div className="productTab px-[48px] mt-48px">
         <h2 className="text-headLine">SPECIAL SELECTION</h2>
         <ul className="mt-12px flex gap-[16px] [&>.active]:bg-grey-g3 [&>.active]:px-12px [&>.active]:py-4px [&>.active]:rounded-8px [&>.active]:text-grey-g8 items-center [&>li]:text-body3">
-          <li className="active">hair</li>
+          <li className="active">Hair</li>
           <li>hair</li>
           <li>hair</li>
           <li>hair</li>
         </ul>
       </div>
-      <div className="productContents mt-48px grid grid-cols-4 pad:grid-cols-3 mb:grid-cols-1 gap-[60px] [&>div]:cursor-pointer">
-        <div className="max-w-[300px] mx-auto">
+      <div className="productContents my-48px grid grid-cols-4 pad:grid-cols-3 mb:grid-cols-1 gap-[60px] [&>div]:cursor-pointer">
+        <div className="mx-auto px-24px">
           <img className="max-h-[250px] object-cover" src="/images/products/perfume/tesit.png" alt="" />
-          <div className="ml-24px">
-            <p className="text-body2">레저렉션 아로마틱 핸드 워시</p>
-            <p className="text-body3">₩ 150,000 / 50mL</p>
-            <button className="flex items-center justify-center gap-[4px] text-body5 bg-grey-g4 w-[100%] text-grey-g8 py-8px rounded-4px mt-8px">
+          <div>
+            <p className="text-body2 text-center">레저렉션 아로마틱 핸드 워시</p>
+            <p className="text-caption3 text-center mt-4px">₩ 150,000 / 50mL</p>
+            <button className="flex items-center justify-center gap-[4px] text-body5 bg-grey-g4 w-[100%] text-grey-g8 py-8px mt-8px">
               <div className="ico_cart" />
               카트에 추가하기
             </button>
           </div>
         </div>
-        <div>
-          <img className="max-h-[250px] mx-auto object-cover" src="/images/products/perfume/tesit.png" alt="" />
+        <div className="mx-auto px-24px">
+          <img className="max-h-[250px] object-cover" src="/images/products/perfume/tesit.png" alt="" />
+          <div>
+            <p className="text-body2 text-center">레저렉션 아로마틱 핸드 워시</p>
+            <p className="text-caption3 text-center mt-4px">₩ 150,000 / 50mL</p>
+            <button className="flex items-center justify-center gap-[4px] text-body5 bg-grey-g4 w-[100%] text-grey-g8 py-8px mt-8px">
+              <div className="ico_cart" />
+              카트에 추가하기
+            </button>
+          </div>
         </div>
-        <div>
-          <img className="max-h-[250px] mx-auto object-cover" src="/images/products/perfume/tesit.png" alt="" />
-        </div>
-        <div>
-          <img className="max-h-[250px] mx-auto object-cover" src="/images/products/perfume/tesit.png" alt="" />
+        <div className="mx-auto px-24px">
+          <img className="max-h-[250px] object-cover" src="/images/products/perfume/tesit.png" alt="" />
+          <div>
+            <p className="text-body2 text-center">레저렉션 아로마틱 핸드 워시</p>
+            <p className="text-caption3 text-center mt-4px">₩ 150,000 / 50mL</p>
+            <button className="flex items-center justify-center gap-[4px] text-body5 bg-grey-g4 w-[100%] text-grey-g8 py-8px mt-8px">
+              <div className="ico_cart" />
+              카트에 추가하기
+            </button>
+          </div>
         </div>
       </div>
     </>

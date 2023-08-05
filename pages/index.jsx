@@ -6,14 +6,16 @@ import 'swiper/css/scrollbar';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Button, HeadOption, Layout, Navbar, MainProductSlideContents } from '@components/index';
-import { useEffect, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import { MainContent } from '@components/content/MainContents';
+import { useRouter } from 'next/router';
 // Import Swiper React components
 
 // Import Swiper styles
 
 const TITLE = 'Aesop Main';
 export default function Main() {
+  const router = useRouter();
   const [product, setProduct] = useState();
 
   const getProduct = async () => {
@@ -23,7 +25,7 @@ export default function Main() {
     })
       .then(function (response) {
         console.log(response);
-        setProduct(response.data.hand);
+        setProduct(response.data[0].content);
       })
       .catch(function (error) {
         console.log(error);
@@ -51,7 +53,7 @@ export default function Main() {
           <p className="text-body5 mb-24px">
             이솝의 바디와 핸드 제품은 효과적인 클렌징, 수분 공급, 퍼스널 케어에 따른 고민 완화 등 일상적일 수 있는 경험을 한층 풍성하게 만들어줍니다.
           </p>
-          <Button title={'모든 제품 보러가기'} />
+          <Button title={'모든 제품 보러가기'} clkFunc={() => router.push('/product')} />
         </div>
         {/* infoBlock */}
         {/* slide */}
@@ -83,11 +85,9 @@ export default function Main() {
           }}>
           {product?.map((product, idx) => {
             return (
-              <>
-                <SwiperSlide>
-                  <MainProductSlideContents key={idx} product={product} />
-                </SwiperSlide>
-              </>
+              <SwiperSlide key={idx}>
+                <MainProductSlideContents product={product} />
+              </SwiperSlide>
             );
           })}
         </Swiper>
@@ -178,11 +178,9 @@ export default function Main() {
           }}>
           {product?.map((product, idx) => {
             return (
-              <>
-                <SwiperSlide>
-                  <MainProductSlideContents key={idx} product={product} />
-                </SwiperSlide>
-              </>
+              <SwiperSlide key={idx}>
+                <MainProductSlideContents product={product} />
+              </SwiperSlide>
             );
           })}
         </Swiper>
