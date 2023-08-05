@@ -22,9 +22,9 @@ export function Navbar({ transparent = false, scrollEvent }) {
 
   return (
     <>
-      <nav ref={navRef} className={`transition-all fixed w-[100%] bg-primary-p1 py-16px flex ${transparent ? 'opacity-0' : 'opacity-100'}`} style={{ top: '0px' }}>
+      <nav ref={navRef} className={`z-50 transition-all fixed w-[100%] py-16px flex ${transparent ? 'bg-none' : 'bg-primary-p1'}`} style={{ top: '0px' }}>
         <div
-          className="logo"
+          className="logo cursor-pointer"
           alt="logo"
           onClick={() => {
             location.href = '/';

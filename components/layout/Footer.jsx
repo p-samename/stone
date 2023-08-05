@@ -5,7 +5,13 @@ export function Footer() {
     <footer>
       <div className="w-[100%] h-max bg-primary-p1 py-40px">
         <div className="flex flex-col items-center">
-          <div className="px-12px logo" src="/images/logo.svg" />
+          <div
+            className="px-12px logo cursor-pointer"
+            src="/images/logo.svg"
+            onClick={() => {
+              location.href = '/';
+            }}
+          />
           <ul className="flex gap-[12px] [&>li]:text-grey-g8 text-body5  my-24px">
             <li>HOME</li>
             <li>PRODUCT</li>
