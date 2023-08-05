@@ -22,7 +22,8 @@ export default function Main() {
       url: '/api/products',
     })
       .then(function (response) {
-        setProduct(response.data);
+        console.log(response);
+        setProduct(response.data.products);
       })
       .catch(function (error) {
         console.log(error);
@@ -203,7 +204,6 @@ export default function Main() {
       <div className="store-locate flex mb:flex-col bg-grey-g6 relative">
         <Swiper
           className="w-[60%] mb:w-[100%] [&_.swiper-pagination-progressbar-fill]:bg-primary-p3 [&_.swiper-pagination]:bottom-0 [&_.swiper-pagination]:top-[unset]"
-          // style={{ position: 'unset' }}
           modules={[Navigation, Pagination, Scrollbar, A11y]} //
           slidesPerView={1}
           pagination={{
