@@ -34,3 +34,10 @@ a {
   height: 12px;
   background-size: contain;
 }
+
+.ico_cart {
+  background: url("/images/icon/ico_cart.svg") no-repeat center;
+  width: 18px;
+  height: 18px;
+  background-size: contain;
+}

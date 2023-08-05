@@ -23,7 +23,7 @@ export default function Main() {
     })
       .then(function (response) {
         console.log(response);
-        setProduct(response.data.products);
+        setProduct(response.data.hand);
       })
       .catch(function (error) {
         console.log(error);
@@ -46,7 +46,7 @@ export default function Main() {
       {/* slide */}
       <div className="product1 flex gap-[40px] relative mb:flex-col bg-grey-g7 items-center h-[max] py-48px">
         {/* infoBlock */}
-        <div className="flex flex-col w-[280px] pad:ml-[80px] mb:mx-auto h-[100%] justify-center">
+        <div className="flex flex-col w-[280px] pad:ml-[80px] web:ml-[80px] mb:mx-auto h-[100%] justify-center">
           <p className="text-[44px] mb-12px">HAND</p>
           <p className="text-body5 mb-24px">
             이솝의 바디와 핸드 제품은 효과적인 클렌징, 수분 공급, 퍼스널 케어에 따른 고민 완화 등 일상적일 수 있는 경험을 한층 풍성하게 만들어줍니다.
@@ -141,7 +141,7 @@ export default function Main() {
       />
       <div className="product2 flex gap-[40px] relative mb:flex-col bg-grey-g6 items-center h-[max] py-48px">
         {/* infoBlock */}
-        <div className="flex flex-col w-[280px] pad:ml-[80px] mb:mx-auto h-[100%] justify-center">
+        <div className="flex flex-col w-[280px] pad:ml-[80px] web:ml-[80px] mb:mx-auto h-[100%] justify-center">
           <p className="text-[44px] mb-12px">HAND</p>
           <p className="text-body5 mb-24px">
             이솝의 바디와 핸드 제품은 효과적인 클렌징, 수분 공급, 퍼스널 케어에 따른 고민 완화 등 일상적일 수 있는 경험을 한층 풍성하게 만들어줍니다.
