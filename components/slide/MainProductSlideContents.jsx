@@ -1,17 +1,36 @@
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Button } from '@components/index';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
-export function MainProductSlideContents({ product }) {
+export function MainProductSlideContents({ additionalClass, productType }) {
+  const [product, setProduct] = useState();
+  const getProduct = async (productType) => {
+    await axios({
+      method: 'get',
+      url: `/api/product/${productType}`,
+    })
+      .then(function (response) {
+        setProduct(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+
+  useEffect(() => {
+    getProduct(productType);
+  }, []);
+
+  if (!product) return;
   return (
     <>
-      <div className="product1 flex gap-[40px] relative mb:flex-col bg-grey-g7 items-center h-[max] py-48px">
+      <div className={`product1 flex gap-[40px] relative mb:flex-col items-center h-[max] py-48px ${additionalClass} `}>
         {/* infoBlock */}
         <div className="flex flex-col w-[280px] pad:ml-[80px] web:ml-[80px] mb:mx-auto h-[100%] justify-center">
-          <p className="text-[44px] mb-12px">HAND</p>
-          <p className="text-body5 mb-24px">
-            이솝의 바디와 핸드 제품은 효과적인 클렌징, 수분 공급, 퍼스널 케어에 따른 고민 완화 등 일상적일 수 있는 경험을 한층 풍성하게 만들어줍니다.
-          </p>
+          <p className="text-[44px] mb-12px">{product.title.toUpperCase()}</p>
+          <p className="text-body5 mb-24px">{product.description}</p>
           <Button title={'모든 제품 보러가기'} clkFunc={() => router.push('/product')} />
         </div>
         {/* infoBlock */}
@@ -42,7 +61,7 @@ export function MainProductSlideContents({ product }) {
           pagination={{
             type: 'progressbar',
           }}>
-          {product?.map((product, idx) => {
+          {product.content.map((product, idx) => {
             return (
               <SwiperSlide key={idx}>
                 <div className="px-24px">

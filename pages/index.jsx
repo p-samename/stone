@@ -10,24 +10,6 @@ import { MainContent } from '@components/content/MainContents';
 
 const TITLE = 'Aesop Main';
 export default function Main() {
-  const [product, setProduct] = useState();
-  const getProduct = async () => {
-    await axios({
-      method: 'get',
-      url: '/api/product/perfume',
-    })
-      .then(function (response) {
-        setProduct(response.data);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  };
-
-  useEffect(() => {
-    getProduct();
-  }, []);
-
   return (
     <>
       <Navbar />
@@ -37,7 +19,10 @@ export default function Main() {
           <p className="w-max mb:w-[200px] text-center text-caption4 text-grey-g8 font-light">‘If the path be beautiful, let us not ask where it leads.’</p>
         </div>
       </div>
-      <MainProductSlideContents product={product} />
+
+      {/* 상품 슬라이드 컨텐츠 */}
+      <MainProductSlideContents productType={'perfume'} additionalClass={'bg-grey-g7'} />
+      {/* 상품 슬라이드 컨텐츠 */}
 
       <MainContent
         title={'브론즈 인센스 홀더'} //
@@ -85,6 +70,10 @@ export default function Main() {
         buttonTitle={'인텐스 세럼 더보기'}
         bgColor="bg-grey-g7"
       />
+
+      {/* 상품 슬라이드 컨텐츠 */}
+      <MainProductSlideContents productType={'hand'} additionalClass={'bg-grey-g6'} />
+      {/* 상품 슬라이드 컨텐츠 */}
 
       <div className="relative my-24px  mb:hidden">
         <img className="pad:w-[70%] ml-auto" src="/images/products/contentsImg/4.png" />
