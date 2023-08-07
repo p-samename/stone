@@ -4,12 +4,27 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Button, HeadOption, Layout, Navbar, MainProductSlideContents } from '@components/index';
 import { useEffect, useState } from 'react';
 import { MainContent } from '@components/content/MainContents';
-// Import Swiper React components
-
-// Import Swiper styles
+import { mainContentApi } from 'service/api';
 
 const TITLE = 'Aesop Main';
 export default function Main() {
+  const [mainContent, setMainContent] = useState();
+
+  //main content API
+  const getMainContent = async () => {
+    try {
+      const mainContent = await mainContentApi.getMainContent();
+      setMainContent(mainContent); // API에서 가져온 데이터 사용
+    } catch (error) {
+      console.log('An error occurred:', error);
+    }
+  };
+
+  useEffect(() => {
+    getMainContent();
+  }, []);
+  //main content API
+
   return (
     <>
       <Navbar />
@@ -21,62 +36,26 @@ export default function Main() {
       </div>
 
       {/* 상품 슬라이드 컨텐츠 */}
-      <MainProductSlideContents productType={'perfume'} additionalClass={'bg-grey-g7'} />
+      <MainProductSlideContents productType={'perfume'} additionalClass={'bg-grey-g6'} />
       {/* 상품 슬라이드 컨텐츠 */}
 
-      <MainContent
-        title={'브론즈 인센스 홀더'} //
-        subTitle={'고요함을 불어넣는 홈 케어 제품'}
-        description={
-          '보겔 스튜디오(Vogel Studio)가 이솝을 위해 디자인한 인센스 홀더로 공간에 평온한 분위기를 선사합니다.\
-           하나하나 개별적으로 제작되며, 청동으로 주조되어 시간이 지남에 따라 자연스러운 녹청이 생길 수 있습니다.'
-        }
-        imagePath={'/images/products/homeCare/insence_main.png'}
-        buttonTitle={'홈케어 제품 보러가기'}
-      />
+      {/* <MainContent content={getMainContent} buttonTitle={'홈케어 제품 보러가기'} /> */}
 
-      <MainContent
-        title={'도시 생활을 위한 가벼운 레이어'} //
-        subTitle={'안티 옥시던트 인텐스 세럼'}
-        description={
-          '도시 생활자를 고려해 개발된 이 세럼은 지속적이면서도 가볍고 빠른 수분 공급과 항산화 성분이\
-           풍부한 영양 보충을 돕고 피부가 편안한 보호막을 형성하여 피부를 탄탄하게 지켜줍니다.'
-        }
-        imagePath={'/images/products/contentsImg/1.png'}
-        buttonTitle={'인텐스 세럼 더보기'}
-        reverseContent={true}
-        bgColor="bg-grey-g7"
-      />
-
-      <MainContent
-        title={'도시 생활을 위한 가벼운 레이어'} //
-        subTitle={'안티 옥시던트 인텐스 세럼'}
-        description={
-          '도시 생활자를 고려해 개발된 이 세럼은 지속적이면서도 가볍고 빠른 수분 공급과 항산화 성분이\
-           풍부한 영양 보충을 돕고 피부가 편안한 보호막을 형성하여 피부를 탄탄하게 지켜줍니다.'
-        }
-        imagePath={'/images/products/contentsImg/2.png'}
-        buttonTitle={'인텐스 세럼 더보기'}
-        bgColor="bg-grey-g7"
-      />
-      <MainContent
-        title={'도시 생활을 위한 가벼운 레이어'} //
-        subTitle={'안티 옥시던트 인텐스 세럼'}
-        description={
-          '도시 생활자를 고려해 개발된 이 세럼은 지속적이면서도 가볍고 빠른 수분 공급과 항산화 성분이\
-           풍부한 영양 보충을 돕고 피부가 편안한 보호막을 형성하여 피부를 탄탄하게 지켜줍니다.'
-        }
-        imagePath={'/images/products/contentsImg/3.png'}
-        buttonTitle={'인텐스 세럼 더보기'}
-        bgColor="bg-grey-g7"
-      />
+      {mainContent && (
+        <>
+          <MainContent content={mainContent[0]} bgColor="bg-grey-g7" buttonTitle={'홈 케어 제품 보러가기'} />
+          <MainContent content={mainContent[1]} reverseContent={true} bgColor="bg-grey-g7" buttonTitle={'인텐스 세럼 더보기'} />
+          <MainContent content={mainContent[2]} bgColor="bg-grey-g7" buttonTitle={'인텐스 세럼 더보기'} />
+          <MainContent content={mainContent[3]} bgColor="bg-grey-g7" buttonTitle={'인텐스 세럼 더보기'} />
+        </>
+      )}
 
       {/* 상품 슬라이드 컨텐츠 */}
       <MainProductSlideContents productType={'hand'} additionalClass={'bg-grey-g6'} />
       {/* 상품 슬라이드 컨텐츠 */}
 
       <div className="relative my-24px  mb:hidden">
-        <img className="pad:w-[70%] ml-auto" src="/images/products/contentsImg/4.png" />
+        <img className="web:w-[70%] ml-auto" src="/images/products/contentsImg/4.png" />
         <blockquote className="text-[20px] text-body4 font-light absolute top-10 left-10">
           <q>
             A dream, when done, should leave no trace that it has lived,

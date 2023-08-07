@@ -2,21 +2,17 @@ import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Button } from '@components/index';
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { mainContentApi } from 'service/api';
 
 export function MainProductSlideContents({ additionalClass, productType }) {
   const [product, setProduct] = useState();
   const getProduct = async (productType) => {
-    await axios({
-      method: 'get',
-      url: `/api/product/${productType}`,
-    })
-      .then(function (response) {
-        setProduct(response.data);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    try {
+      const mainContent = await mainContentApi.getMainProduct(productType);
+      setProduct(mainContent);
+    } catch (error) {
+      console.log('An error occurred:', error);
+    }
   };
 
   useEffect(() => {
