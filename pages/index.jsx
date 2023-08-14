@@ -5,11 +5,14 @@ import { Button, HeadOption, Layout, Navbar, MainProductSlideContents } from '@c
 import { useEffect, useState } from 'react';
 import { MainContent } from '@components/content/MainContents';
 import { mainContentApi } from 'service/api';
+import { useTab } from '@hooks/index';
+import { stringUilts } from 'utils';
 
 const TITLE = 'Aesop Main';
 export default function Main() {
   const [mainContent, setMainContent] = useState();
-
+  const [locateContent, setLocateContent] = useState();
+  const { currentIdx: currentLocateIdx, onChangeIdx } = useTab(0);
   //main content API
   const getMainContent = async () => {
     try {
@@ -20,8 +23,18 @@ export default function Main() {
     }
   };
 
+  //main locate API
+  const getLocateInfo = async () => {
+    try {
+      const locateInfo = await mainContentApi.getLocateInfo();
+      setLocateContent(locateInfo); // API에서 가져온 데이터 사용
+    } catch (error) {
+      console.log('An error occurred:', error);
+    }
+  };
   useEffect(() => {
     getMainContent();
+    getLocateInfo();
   }, []);
   //main content API
 
@@ -66,48 +79,50 @@ export default function Main() {
       </div>
 
       {/* store locator */}
-      <div className="store-locate flex mb:flex-col bg-grey-g6 relative">
-        <Swiper
-          className="w-[60%] mb:w-[100%] [&_.swiper-pagination-progressbar-fill]:bg-primary-p3 [&_.swiper-pagination]:bottom-0 [&_.swiper-pagination]:top-[unset]"
-          modules={[Navigation, Pagination, Scrollbar, A11y]} //
-          slidesPerView={1}
-          pagination={{
-            type: 'progressbar',
-          }}>
-          <SwiperSlide>
-            <img src="/images/storeImg/store1.png" alt="" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="/images/storeImg/store1.png" alt="" />
-          </SwiperSlide>
-        </Swiper>
-
-        <div className="grid grid-col w-[40%] mb:w-[100%]">
-          <div className="flex items-center">
-            <div className="p-24px">
-              <div className="flex items-center mb-4px gap-[4px]">
-                <div className="ico_locate" />
-                <p className="text-body4">이솝 성수</p>
+      {locateContent && (
+        <div className="store-locate flex mb:flex-col bg-grey-g6 relative">
+          <Swiper
+            className="w-[60%] mb:w-[100%] [&_.swiper-pagination-progressbar-fill]:bg-primary-p3 [&_.swiper-pagination]:bottom-0 [&_.swiper-pagination]:top-[unset]"
+            modules={[Navigation, Pagination, Scrollbar, A11y]} //
+            slidesPerView={1}
+            onRealIndexChange={(e) => {
+              onChangeIdx(e.activeIndex);
+            }}
+            pagination={{
+              type: 'progressbar',
+            }}>
+            {locateContent.map((locateContent, locateIdx) => {
+              return (
+                <SwiperSlide key={locateIdx}>
+                  <img src={`${locateContent.imgPath}`} alt="" />
+                </SwiperSlide>
+              );
+            })}
+          </Swiper>
+          <div className="grid grid-col w-[40%] mb:w-[100%]">
+            <div className="flex items-center">
+              <div className="p-24px">
+                <div className="flex items-center mb-4px gap-[4px]">
+                  <div className="ico_locate" />
+                  <p className="text-body4">{locateContent[currentLocateIdx].title}</p>
+                </div>
+                <p className="text-caption3 w-max mb-12px">{locateContent[currentLocateIdx].adress}</p>
+                <p className="w-[100%] text-caption3 whitespace-pre-line">{stringUilts.lineBreak(locateContent[currentLocateIdx])}</p>
               </div>
-              <p className="text-caption3 w-max mb-12px">서울시 성동구 연무장길 57</p>
-              <p className="w-[100%] text-caption3 whitespace-wrap">
-                이솝 성수 스토어는 린스 앤 리턴 캠페인과 함께합니다.
-                <br /> 다 사용한 이솝 제품의 재활용을 위해 깨끗이 세척한 공병을 선별된 이솝 스토어로 전달해주세요.
-              </p>
             </div>
-          </div>
-          <div className="flex items-center bg-grey-g7">
-            <div className="p-24px">
-              <p className="text-body4 mb-4px">STORE LOCATE</p>
-              <p className="w-[100%] text-caption3 whitespace-wrap mb-12px">
-                매장에서는 이솝 컨설턴트가 고객 여러분을 따뜻하게 맞이하고,
-                <br /> 기프트 구매를 위한 맞춤형 컨설팅을 제공해드립니다.
-              </p>
-              <Button additionalClass={'text-caption2'} btnSize="small" title={'다른 매장 보기'} />
+            <div className="flex items-center bg-grey-g7">
+              <div className="p-24px">
+                <p className="text-body4 mb-4px">STORE LOCATE</p>
+                <p className="w-[100%] text-caption3 whitespace-wrap mb-12px">
+                  매장에서는 이솝 컨설턴트가 고객 여러분을 따뜻하게 맞이하고,
+                  <br /> 기프트 구매를 위한 맞춤형 컨설팅을 제공해드립니다.
+                </p>
+                <Button additionalClass={'text-caption2'} btnSize="small" title={'다른 매장 보기'} />
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      )}
       {/* store locator */}
     </>
   );

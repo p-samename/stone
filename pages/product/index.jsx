@@ -57,6 +57,17 @@ export default function Product() {
             </button>
           </div>
         </div>
+        <div className="mx-auto px-24px">
+          <img className="max-h-[250px] object-cover" src="/images/products/perfume/tesit.png" alt="" />
+          <div>
+            <p className="text-body2 text-center">레저렉션 아로마틱 핸드 워시</p>
+            <p className="text-caption3 text-center mt-4px">₩ 150,000 / 50mL</p>
+            <button className="flex items-center justify-center gap-[4px] text-body5 bg-grey-g4 w-[100%] text-grey-g8 py-8px mt-8px">
+              <div className="ico_cart" />
+              카트에 추가하기
+            </button>
+          </div>
+        </div>
       </div>
     </>
   );

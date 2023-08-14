@@ -20,4 +20,14 @@ export const mainContentApi = {
       throw error;
     }
   },
+
+  getLocateInfo: async () => {
+    try {
+      const { data: response } = await axios.get(`/api/locate/locate`);
+      return response;
+    } catch (error) {
+      console.log(error);
+      throw error;
+    }
+  },
 };

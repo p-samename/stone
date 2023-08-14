@@ -3,8 +3,10 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Button } from '@components/index';
 import { useEffect, useState } from 'react';
 import { mainContentApi } from 'service/api';
+import { useRouter } from 'next/router';
 
 export function MainProductSlideContents({ additionalClass, productType }) {
+  const router = useRouter();
   const [product, setProduct] = useState();
   const getProduct = async (productType) => {
     try {
