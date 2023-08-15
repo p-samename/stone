@@ -4,10 +4,13 @@ export function Navbar({ transparent = false, scrollEvent }) {
   const [scrollTop, setScrollTop] = useState();
   const navRef = useRef();
   //scroll event
+
+  const handleScroll = () => {
+    setScrollTop(window.scrollY);
+    console.log('@@');
+  };
   useEffect(() => {
-    window.addEventListener('scroll', function () {
-      setScrollTop(window.scrollY);
-    });
+    window.addEventListener('scroll', handleScroll);
     if (scrollTop > 0) {
       navRef.current.style.top = '-100px';
     } else {
@@ -15,9 +18,7 @@ export function Navbar({ transparent = false, scrollEvent }) {
     }
 
     //clean event
-    window.removeEventListener('scroll', function () {
-      setScrollTop(window.scrollY);
-    });
+    return () => window.removeEventListener('scroll', handleScroll);
   }, [scrollTop]);
 
   return (
