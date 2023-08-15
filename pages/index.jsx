@@ -49,7 +49,7 @@ export default function Main() {
       </div>
 
       {/* 상품 슬라이드 컨텐츠 */}
-      <MainProductSlideContents productType={'perfume'} additionalClass={'bg-grey-g6'} />
+      <MainProductSlideContents productType={'body'} additionalClass={'bg-grey-g6'} />
       {/* 상품 슬라이드 컨텐츠 */}
 
       {/* <MainContent content={getMainContent} buttonTitle={'홈케어 제품 보러가기'} /> */}
@@ -117,7 +117,7 @@ export default function Main() {
                   매장에서는 이솝 컨설턴트가 고객 여러분을 따뜻하게 맞이하고,
                   <br /> 기프트 구매를 위한 맞춤형 컨설팅을 제공해드립니다.
                 </p>
-                <Button additionalClass={'text-caption2'} btnSize="small" title={'다른 매장 보기'} />
+                <Button additionalClass={'text-caption2'} title={'다른 매장 보기'} />
               </div>
             </div>
           </div>

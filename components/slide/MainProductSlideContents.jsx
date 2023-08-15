@@ -1,4 +1,4 @@
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Button } from '@components/index';
 import { useEffect, useState } from 'react';
@@ -36,9 +36,11 @@ export function MainProductSlideContents({ additionalClass, productType }) {
         <Swiper
           style={{ position: 'unset' }}
           className="w-[100%] [&_.swiper-pagination-progressbar-fill]:bg-primary-p3 [&_.swiper-pagination]:bottom-0 [&_.swiper-pagination]:top-[unset]"
-          modules={[Navigation, Pagination, Scrollbar, A11y]} //
+          modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]} //
           slidesPerView={1}
           spaceBetween={12}
+          loop={true}
+          autoplay={{ delay: 2000, disableOnInteraction: true }}
           breakpoints={{
             375: {
               slidesPerView: 1,
