@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 const TITLE = 'login';
 export default function Login() {
   const { data: session } = useSession();
+
   useEffect(() => {
     console.log(session);
   }, [session]);
@@ -16,7 +17,9 @@ export default function Login() {
         <div>로그인</div>
 
         {session ? (
-          <button onClick={() => signOut()}>로그아웃하기</button>
+          <button className="bg-sub-n2 text-grey-g8 w-[100%] max-w-[200px] py-8px rounded-4px mt-48px" onClick={() => signOut('kakao')}>
+            로그아웃하기
+          </button>
         ) : (
           <button className="bg-sub-n2 text-grey-g8 w-[100%] max-w-[200px] py-8px rounded-4px mt-48px" onClick={() => signIn('kakao')}>
             카카오톡으로 로그인하기

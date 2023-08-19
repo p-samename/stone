@@ -1,25 +1,25 @@
 import { useEffect, useRef, useState } from 'react';
 
 export function Navbar({ transparent = false, scrollEvent }) {
-  const [scrollTop, setScrollTop] = useState();
   const navRef = useRef();
-  //scroll event
-
-  const handleScroll = () => {
-    setScrollTop(window.scrollY);
-    console.log('@@');
-  };
+  //* scroll event
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    if (scrollTop > 0) {
-      navRef.current.style.top = '-100px';
-    } else {
-      navRef.current.style.top = '0px';
-    }
+    let scrollY = window.scrollY;
+    const handleScroll = () => {
+      if (scrollY < window.scrollY && scrollY > 300) {
+        if (scrollY) navRef.current.style.top = '-100px';
+      } else {
+        navRef.current.style.top = '0px';
+      }
+      scrollY = window.scrollY;
+    };
 
-    //clean event
+    window.addEventListener('scroll', handleScroll);
+
+    //! clean event
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [scrollTop]);
+  }, []);
+  //* scroll event
 
   return (
     <>
