@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+* {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  display: block;
+}
+
+a {
+  font-style: none;
+}
+
+.logo {
+  width: 120px;
+  height: 28px;
+  background: url("/images/icon/logo.svg") no-repeat center;
+  background-size: contain;
+}
+
+.button_arrow {
+  width: 24px;
+  height: 24px;
+  background: url("/images/icon/button_arrow.svg") no-repeat center;
+  background-size: contain;
+}
+
+.ico_locate {
+  background: url("/images/icon/ico_locate.svg") no-repeat center;
+  width: 12px;
+  height: 12px;
+  background-size: contain;
+}
+
+.ico_cart {
+  background: url("/images/icon/ico_cart.svg") no-repeat center;
+  width: 18px;
+  height: 18px;
+  background-size: contain;
+}

@@ -1,22 +1,17 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./src/pages/**/*.{js,ts,jsx,tsx,mdx}', './src/components/**/*.{js,ts,jsx,tsx,mdx}', './src/app/**/*.{js,ts,jsx,tsx,mdx}'],
-  prefix: 'tw-', // prefix tw- 를 사용해야만 테일윈드 스타일 적용
+  content: ['./pages/**/*.{js,ts,jsx,tsx,mdx}', './components/**/*.{js,ts,jsx,tsx,mdx}', './app/**/*.{js,ts,jsx,tsx,mdx}'],
+  // prefix: 'tw-', // prefix tw- 를 사용해야만 테일윈드 스타일 적용
   important: true, // tailwind 스타일 important
   theme: {
-    spacing: {
-      0: '0px',
-      // custom vh 계산된 --vh에 기반한 화면의 실 높이
-      '100cvh': 'calc(var(--vh, 1vh)*100)',
-    },
     //color custom
     colors: {
       primary: {
-        p1: '#7952FA',
-        p2: '#906FFF',
-        p3: '#AA83FF',
-        p4: '#5243FF',
-        p5: '#7C79FF',
+        p1: '#1E212A',
+        p2: '#27374D',
+        p3: '#526D82',
+        p4: '#9DB2BF',
+        p5: '#DDE6ED',
       },
       sub: {
         n1: '#161956',
@@ -32,17 +27,12 @@ module.exports = {
       grey: {
         g1: '#373737',
         g2: '#575A5E',
-        g3: '#A3A8B9',
-        g4: '#C7CCDB',
-        g5: '#E5E9F4',
-        g6: '#F0F2F7',
-        g7: '#F6F7FA',
-        g8: '#FCFCFC',
-        g9: '#FFFFFF',
-      },
-      vendor: {
-        kakao: '#FAE100',
-        apple: '#000000',
+        g3: '#737270',
+        g4: '#B3B2AF',
+        g5: '#D9D8D4',
+        g6: '#F3F2EE',
+        g7: '#FFFEFA',
+        g8: '#FFFFFF',
       },
       system: {
         white: '#FFFFFF',
@@ -77,22 +67,18 @@ module.exports = {
     },
     extend: {
       screens: {
-        bp: { max: '800px' },
-        md: { min: '600px', max: '799px' },
-        sm: { max: '599px' },
+        web: { min: '1400px' },
+        pad: { min: '768px', max: '1399px' },
+        mb: { max: '767px' },
       },
-      borderRadius: sizeList(11, 4),
-      borderWidth: sizeList(11, 1),
-      margin: sizeList(11, 4),
-      padding: sizeList(11, 4),
-      backgroundImage: (theme) => ({
-        'gradient-primary': `linear-gradient(to right, ${theme('colors.primary.p2')}, ${theme('colors.primary.p3')})`,
-        'gradient-sub': `linear-gradient(to right, ${theme('colors.sub.v2')}, ${theme('colors.sub.v3')})`,
-      }),
+      borderRadius: sizeList(22, 4),
+      borderWidth: sizeList(22, 1),
+      margin: sizeList(22, 4),
+      padding: sizeList(22, 4),
     },
   },
 
-  plugins: [require('tailwind-scrollbar-hide')],
+  // plugins: [require('tailwind-scrollbar-hide')],
 };
 
 //px 단위로 변경 및 객체 length , 간격 단위 ex) sizeList(10, 8) 10 은 객체 길이 갯수, 8은 8px , 16px, 24px ...

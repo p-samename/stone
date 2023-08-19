@@ -1,14 +1,18 @@
-import { Footer, HeadOption, Navbar } from '@components/index';
+import PropTypes from 'prop-types';
+import { Footer, HeadOption } from '@components/index';
 
-export const Layout = ({ children, additionalClass, headOption }) => {
+export const Layout = ({ children, headOption, footer = true }) => {
   return (
     <>
-      <div className={`${additionalClass}`}>
-        <HeadOption {...headOption?.props} />
-        <Navbar />
-        {children}
-        <Footer />
-      </div>
+      <HeadOption {...headOption?.props} />
+      {children}
+      {footer ? <Footer /> : <></>}
     </>
   );
+};
+
+Layout.propTypes = {
+  headOption: PropTypes.element,
+  footer: PropTypes.bool,
+  children: PropTypes.element,
 };
