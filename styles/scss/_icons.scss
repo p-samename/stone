@@ -13,22 +13,29 @@
 }
 
 .ico_locate {
-  background: url('/images/icon/ico_locate.svg') no-repeat center;
+  mask: url('/images/icon/ico_locate.svg') no-repeat center;
   width: 12px;
   height: 12px;
   background-size: contain;
 }
 
 .ico_cart {
-  background: url('/images/icon/ico_cart.svg') no-repeat center;
+  mask: url('/images/icon/ico_cart.svg') no-repeat center;
   width: 18px;
   height: 18px;
-  background-size: contain;
+  mask-size: contain;
+}
+
+.ico_heart {
+  mask: url('/images/icon/ico_heart.svg') no-repeat center;
+  width: 12px;
+  height: 12px;
+  mask-size: contain;
 }
 
 .ico_people {
   mask: url('/images/icon/ico_people.svg') no-repeat center;
   width: 18px;
   height: 18px;
-  background-size: contain;
+  mask-size: contain;
 }

@@ -36,10 +36,10 @@ export function Navbar({ transparent = false, scrollEvent }) {
         />
         <div className="flex ml-auto">
           <button>
-            <Icon iconName="ico_people" color="bg-grey-g8" size="h-[24px]" additionalClass="ml-auto mr-24px" />
+            <Icon iconName="ico_cart" color="bg-grey-g8" size="h-[24px]" additionalClass="ml-auto mr-24px" />
           </button>
           <button>
-            <Icon iconName="ico_people" color="bg-grey-g8" size="h-[24px]" additionalClass="ml-auto mr-24px" />
+            <Icon iconName="ico_heart" color="bg-grey-g8" size="w-[24px] h-[24px]" additionalClass="ml-auto mr-24px" />
           </button>
           <button onClick={() => router.push('/login')}>
             <Icon iconName="ico_people" color="bg-grey-g8" size="h-[24px]" additionalClass="ml-auto mr-24px" />

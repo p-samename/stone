@@ -29,17 +29,29 @@ a {
 }
 
 .ico_locate {
-  background: url("/images/icon/ico_locate.svg") no-repeat center;
+  -webkit-mask: url("/images/icon/ico_locate.svg") no-repeat center;
+          mask: url("/images/icon/ico_locate.svg") no-repeat center;
   width: 12px;
   height: 12px;
   background-size: contain;
 }
 
 .ico_cart {
-  background: url("/images/icon/ico_cart.svg") no-repeat center;
+  -webkit-mask: url("/images/icon/ico_cart.svg") no-repeat center;
+          mask: url("/images/icon/ico_cart.svg") no-repeat center;
   width: 18px;
   height: 18px;
-  background-size: contain;
+  -webkit-mask-size: contain;
+          mask-size: contain;
+}
+
+.ico_heart {
+  -webkit-mask: url("/images/icon/ico_heart.svg") no-repeat center;
+          mask: url("/images/icon/ico_heart.svg") no-repeat center;
+  width: 12px;
+  height: 12px;
+  -webkit-mask-size: contain;
+          mask-size: contain;
 }
 
 .ico_people {
@@ -47,5 +59,6 @@ a {
           mask: url("/images/icon/ico_people.svg") no-repeat center;
   width: 18px;
   height: 18px;
-  background-size: contain;
+  -webkit-mask-size: contain;
+          mask-size: contain;
 }
