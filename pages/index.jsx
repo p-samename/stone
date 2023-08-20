@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Button, HeadOption, Layout, Navbar, MainProductSlideContents } from '@components/index';
+import { Button, HeadOption, Layout, Navbar, MainProductSlideContents, Icon } from '@components/index';
 import { useEffect, useState } from 'react';
 import { MainContent } from '@components/content/MainContents';
 import { mainContentApi } from 'service/api';
@@ -103,7 +103,7 @@ export default function Main() {
             <div className="flex items-center">
               <div className="p-24px">
                 <div className="flex items-center mb-4px gap-[4px]">
-                  <div className="ico_locate" />
+                  <Icon iconName="ico_locate" />
                   <p className="text-body4">{locateContent[currentLocateIdx].title}</p>
                 </div>
                 <p className="text-caption3 w-max mb-12px">{locateContent[currentLocateIdx].adress}</p>

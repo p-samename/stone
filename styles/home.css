@@ -33,7 +33,8 @@ a {
           mask: url("/images/icon/ico_locate.svg") no-repeat center;
   width: 12px;
   height: 12px;
-  background-size: contain;
+  -webkit-mask-size: contain;
+          mask-size: contain;
 }
 
 .ico_cart {
