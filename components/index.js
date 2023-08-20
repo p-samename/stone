@@ -9,3 +9,6 @@ export { Button } from './button/Button';
 
 //** swiper
 export { MainProductSlideContents } from './slide/MainProductSlideContents';
+
+// ** icon
+export { Icon } from './icon/Icon';
