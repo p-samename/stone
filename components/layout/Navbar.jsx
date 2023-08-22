@@ -1,10 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
 import { Icon } from '..';
 import { useRouter } from 'next/router';
+import { useSelector } from 'react-redux';
+import { selectUser } from '@redux/store/selector';
 
 export function Navbar({ transparent = false, scrollEvent }) {
   const router = useRouter();
   const navRef = useRef();
+  const userStore = useSelector(selectUser);
   //* scroll event
   useEffect(() => {
     let scrollY = window.scrollY;
@@ -34,15 +37,19 @@ export function Navbar({ transparent = false, scrollEvent }) {
             location.href = '/';
           }}
         />
-        <div className="flex ml-auto">
+        <div className="flex ml-auto gap-[24px]">
           <button>
-            <Icon iconName="ico_cart" color="bg-grey-g8" size="h-[24px]" additionalClass="ml-auto mr-24px" />
+            <Icon iconName="ico_cart" color="bg-grey-g8" size="w-[24px] h-[24px]" additionalClass="ml-auto" />
           </button>
           <button>
-            <Icon iconName="ico_heart" color="bg-grey-g8" size="w-[24px] h-[24px]" additionalClass="ml-auto mr-24px" />
+            <Icon iconName="ico_heart" color="bg-grey-g8" size="w-[24px] h-[24px]" additionalClass="ml-auto" />
           </button>
           <button onClick={() => router.push('/login')}>
-            <Icon iconName="ico_people" color="bg-grey-g8" size="h-[24px]" additionalClass="ml-auto mr-24px" />
+            {userStore.user ? (
+              <div className="mr-24px rounded-full bg-cover bg-center w-[24px] h-[24px]" style={{ backgroundImage: `url('${userStore.user.image}')` }}></div>
+            ) : (
+              <Icon iconName="ico_people" color="bg-grey-g8" size="h-[24px]" additionalClass="ml-auto" />
+            )}
           </button>
         </div>
       </nav>

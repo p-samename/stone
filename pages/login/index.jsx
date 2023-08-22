@@ -1,14 +1,12 @@
 import { HeadOption, Layout, Navbar } from '@components/index';
-import { signIn, useSession, signOut } from 'next-auth/react';
+import { useAuth } from '@hooks/useAuth';
 import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
 const TITLE = 'login';
 export default function Login() {
-  const { data: session } = useSession();
+  const { userStore, login, logout } = useAuth();
 
-  useEffect(() => {
-    console.log(session);
-  }, [session]);
   return (
     <>
       <Navbar />
@@ -16,12 +14,12 @@ export default function Login() {
       <div className="loginBlock py-[120px] text-center">
         <div>로그인</div>
 
-        {session ? (
-          <button className="bg-sub-n2 text-grey-g8 w-[100%] max-w-[200px] py-8px rounded-4px mt-48px" onClick={() => signOut('kakao')}>
+        {userStore.user ? (
+          <button className="bg-sub-n2 text-grey-g8 w-[100%] max-w-[200px] py-8px rounded-4px mt-48px" onClick={() => logout()}>
             로그아웃하기
           </button>
         ) : (
-          <button className="bg-sub-n2 text-grey-g8 w-[100%] max-w-[200px] py-8px rounded-4px mt-48px" onClick={() => signIn('kakao')}>
+          <button className="bg-sub-n2 text-grey-g8 w-[100%] max-w-[200px] py-8px rounded-4px mt-48px" onClick={() => login()}>
             카카오톡으로 로그인하기
           </button>
         )}

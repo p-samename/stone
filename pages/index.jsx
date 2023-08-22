@@ -7,6 +7,7 @@ import { MainContent } from '@components/content/MainContents';
 import { mainContentApi } from 'service/api';
 import { useTab } from '@hooks/index';
 import { stringUilts } from 'utils';
+import { useSelector } from 'react-redux';
 
 const TITLE = 'Aesop Main';
 export default function Main() {
@@ -131,3 +132,23 @@ export default function Main() {
 Main.getLayout = function getLayout(page) {
   return <Layout headOption={<HeadOption title={TITLE} />}>{page}</Layout>;
 };
+
+// * 유저 정보 next/Auth getSession 통해서 서버사이드로 받아오려면 이 함수 사용
+// export async function getServerSideProps(context) {
+//   try {
+//     const user = await getSession(context);
+
+//     return {
+//       props: {
+//         userState: user,
+//       },
+//     };
+//   } catch (error) {
+//     console.log('An error occurred:', error);
+//     return {
+//       props: {
+//         userState: null,
+//       },
+//     };
+//   }
+// }
