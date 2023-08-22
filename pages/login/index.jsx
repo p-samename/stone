@@ -1,14 +1,11 @@
 import { HeadOption, Layout, Navbar } from '@components/index';
 import { useAuth } from '@hooks/useAuth';
-import { signIn, useSession, signOut, getSession } from 'next-auth/react';
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { loggedIn, loggedOut } from 'redux/slice/userSlice';
+import { useSelector } from 'react-redux';
 
 const TITLE = 'login';
 export default function Login() {
-  const dispatch = useDispatch();
-  const { user, login, logout } = useAuth();
+  const { userStore, login, logout } = useAuth();
 
   return (
     <>
@@ -17,7 +14,7 @@ export default function Login() {
       <div className="loginBlock py-[120px] text-center">
         <div>로그인</div>
 
-        {user ? (
+        {userStore.user ? (
           <button className="bg-sub-n2 text-grey-g8 w-[100%] max-w-[200px] py-8px rounded-4px mt-48px" onClick={() => logout()}>
             로그아웃하기
           </button>
