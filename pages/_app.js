@@ -19,11 +19,27 @@ function Stone({ Component, pageProps }) {
   return (
     <>
       <Provider store={store}>
-        <PersistGate persistor={persistor}>
-          <SessionProvider session={pageProps.session}>{getLayout(<Component {...pageProps} />)}</SessionProvider>
-        </PersistGate>
+        <SessionProvider session={pageProps.session}>
+          {getLayout(
+            <PersistGate loading={null} persistor={persistor}>
+              <Component {...pageProps} />
+            </PersistGate>,
+          )}
+        </SessionProvider>
       </Provider>
     </>
   );
 }
 export default Stone;
+
+export async function getServerSideProps(context) {
+  // Redux 상태나 세션 정보를 서버 사이드에서 가져올 수 있음
+  const session = await getSession(context);
+  // 이 곳에서 필요한 데이터를 불러와서 리턴해주면 됨
+
+  return {
+    props: {
+      session,
+    },
+  };
+}
