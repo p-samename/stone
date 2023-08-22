@@ -1,7 +1,5 @@
 import { HeadOption, Layout, Navbar } from '@components/index';
 import { useAuth } from '@hooks/useAuth';
-import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
 
 const TITLE = 'login';
 export default function Login() {

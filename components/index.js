@@ -1,6 +1,6 @@
 // ** 레이아웃
+export { HeadOption } from './headOption/HeadOption';
 export { Layout } from './layout/Layout';
-export { HeadOption } from './layout/HeadOption';
 export { Footer } from './layout/Footer';
 export { Navbar } from './layout/Navbar';
 
