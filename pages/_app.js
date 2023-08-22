@@ -1,5 +1,5 @@
 import { Layout } from '@components/index';
-import { SessionProvider } from 'next-auth/react';
+import { SessionProvider, getSession } from 'next-auth/react';
 import '@styles/home.css';
 import 'swiper/css';
 import 'swiper/css/navigation';
