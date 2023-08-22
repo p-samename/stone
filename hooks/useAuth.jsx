@@ -10,7 +10,7 @@ export function useAuth() {
 
   //! 카카오 로그인시 리다이렉트로 인해 페이지가 리로드 되기때문에 세션을 받아 오고 나서 스토어에 저장해야함.
   useEffect(() => {
-    async function fetchData() {
+    async function fetchUserStore() {
       const userSession = await getSession();
 
       if (userSession) {
@@ -19,7 +19,7 @@ export function useAuth() {
         dispatch(loggedOut(null));
       }
     }
-    fetchData();
+    fetchUserStore();
   }, [dispatch]);
 
   async function login() {
