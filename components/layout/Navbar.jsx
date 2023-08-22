@@ -48,7 +48,7 @@ export function Navbar({ transparent = false, scrollEvent }) {
             {userStore.user ? (
               <div className="mr-24px rounded-full bg-cover bg-center w-[24px] h-[24px]" style={{ backgroundImage: `url('${userStore.user.image}')` }}></div>
             ) : (
-              <Icon iconName="ico_people" color="bg-grey-g8" size="h-[24px]" additionalClass="ml-auto" />
+              <Icon iconName="ico_people" color="bg-grey-g8" size="w-[24px] h-[24px]" additionalClass="ml-auto mr-24px" />
             )}
           </button>
         </div>
