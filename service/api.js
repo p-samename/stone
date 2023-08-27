@@ -13,7 +13,7 @@ export const mainContentApi = {
 
   getMainProduct: async (productType) => {
     try {
-      const { data: response } = await axios.get(`/api/product/${productType}`);
+      const { data: response } = await axios.get(`/api/product/products?content=${productType}`);
       return response;
     } catch (error) {
       console.log(error);

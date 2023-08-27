@@ -31,7 +31,7 @@ module.exports = {
         g4: '#B3B2AF',
         g5: '#D9D8D4',
         g6: '#F3F2EE',
-        g7: '#FFFEFA',
+        g7: '#FAFAFA',
         g8: '#FFFFFF',
       },
       system: {
