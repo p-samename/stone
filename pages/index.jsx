@@ -1,19 +1,20 @@
-import axios from 'axios';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Button, HeadOption, Layout, Navbar, MainProductSlideContents, Icon } from '@components/index';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { MainContent } from '@components/content/MainContents';
 import { mainContentApi } from 'service/api';
 import { useTab } from '@hooks/index';
 import { stringUilts } from 'utils';
-import { useSelector } from 'react-redux';
+import { motion } from 'framer-motion';
+import ScrollViewSection from '@components/scrollViewSection/ScrollViewSection';
 
 const TITLE = 'Aesop Main';
 export default function Main() {
   const [mainContent, setMainContent] = useState();
   const [locateContent, setLocateContent] = useState();
   const { currentIdx: currentLocateIdx, onChangeIdx } = useTab(0);
+
   //main content API
   const getMainContent = async () => {
     try {
@@ -44,8 +45,10 @@ export default function Main() {
       <Navbar />
       <div className="mainBlock h-[768px] bg-cover bg-center bg-no-repeat" style={{ background: 'url("/images/main.png")' }}>
         <div className="transition-all flex flex-col scale-[2] mb:scale-[1.5] items-center w-max relative top-[50%] left-[50%] translate-x-[-45%]">
-          <div className="logo" alt="logo" />
-          <p className="w-max mb:w-[200px] text-center text-caption4 text-grey-g8 font-light">‘If the path be beautiful, let us not ask where it leads.’</p>
+          <motion.div initial={{ opacity: 0, scale: 1 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 2 }}>
+            <div className="logo mx-auto" alt="logo" />
+            <p className="w-max mb:w-[200px] text-center text-caption4 text-grey-g8 font-light">‘If the path be beautiful, let us not ask where it leads.’</p>
+          </motion.div>
         </div>
       </div>
 
@@ -53,14 +56,20 @@ export default function Main() {
       <MainProductSlideContents productType={'body'} additionalClass={'bg-grey-g6'} />
       {/* 상품 슬라이드 컨텐츠 */}
 
-      {/* <MainContent content={getMainContent} buttonTitle={'홈케어 제품 보러가기'} /> */}
-
       {mainContent && (
         <>
-          <MainContent content={mainContent[0]} bgColor="bg-grey-g7" buttonTitle={'홈 케어 제품 보러가기'} />
-          <MainContent content={mainContent[1]} reverseContent={true} bgColor="bg-grey-g7" buttonTitle={'인텐스 세럼 더보기'} />
-          <MainContent content={mainContent[2]} bgColor="bg-grey-g7" buttonTitle={'인텐스 세럼 더보기'} />
-          <MainContent content={mainContent[3]} bgColor="bg-grey-g7" buttonTitle={'인텐스 세럼 더보기'} />
+          <ScrollViewSection>
+            <MainContent content={mainContent[0]} bgColor="bg-grey-g7" buttonTitle={'홈 케어 제품 보러가기'} />
+          </ScrollViewSection>
+          <ScrollViewSection initialPosition="translateX(200px)">
+            <MainContent content={mainContent[1]} reverseContent={true} bgColor="bg-grey-g7" buttonTitle={'인텐스 세럼 더보기'} />
+          </ScrollViewSection>
+          <ScrollViewSection>
+            <MainContent content={mainContent[2]} bgColor="bg-grey-g7" buttonTitle={'인텐스 세럼 더보기'} />
+          </ScrollViewSection>
+          <ScrollViewSection>
+            <MainContent content={mainContent[3]} bgColor="bg-grey-g7" buttonTitle={'인텐스 세럼 더보기'} />
+          </ScrollViewSection>
         </>
       )}
 

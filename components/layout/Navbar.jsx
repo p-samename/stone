@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import { useSelector } from 'react-redux';
 import { selectUser } from '@redux/store/selector';
 
-export function Navbar({ transparent = false, scrollEvent }) {
+export function Navbar({ transparent = false }) {
   const router = useRouter();
   const navRef = useRef();
   const userStore = useSelector(selectUser);

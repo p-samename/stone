@@ -12,7 +12,7 @@ export function Footer() {
               location.href = '/';
             }}
           />
-          <ul className="flex gap-[12px] [&>li]:text-grey-g8 text-body5  my-24px">
+          <ul className="flex gap-[12px] text-grey-g4 hover:[&>li]:text-grey-g8 cursor-pointer [&>li]:text-caption2  my-24px">
             <li>HOME</li>
             <li>PRODUCT</li>
             <li>STORE</li>
