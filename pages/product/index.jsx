@@ -89,10 +89,14 @@ export default function Product() {
             {product.content.slice(0, pagingSize).map((content) => {
               return (
                 <>
-                  <div className="mx-auto px-24px py-20px   bg-grey-g6 rounded-12px">
+                  <div
+                    onClick={() => {
+                      router.push('/productDetail');
+                    }}
+                    className="mx-auto px-24px py-20px   bg-grey-g6 rounded-12px w-[100%]">
                     <img className="h-[250px] max-w-[180px] object-contain mx-auto" src={content.imgPath} alt={content.title + `_img`} />
                     <div>
-                      <p className="text-body2 text-center max-w-[200px] overflow-hidden text-ellipsis break-words line-clamp-1">{content.title}</p>
+                      <p className="text-body2 mx-auto text-center max-w-[200px] overflow-hidden text-ellipsis break-words line-clamp-1">{content.title}</p>
                       <p className="text-caption3 text-center mt-4px">
                         ₩{content.price.toLocaleString()} / {content.size}
                       </p>
